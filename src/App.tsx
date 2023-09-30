@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { LandingPage } from './components/LandingPage';
 import { RoomPage } from './components/RoomPage';
+import { SelectGame } from './components/SelectGame';
 import {
     AppContainer,
     AppHeader,
@@ -19,6 +20,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/room" element={<RoomPage />} />
+                    <Route path="/selectGame" element={<SelectGame />} />
                 </Routes>
             </BrowserRouter>
             <Footer>

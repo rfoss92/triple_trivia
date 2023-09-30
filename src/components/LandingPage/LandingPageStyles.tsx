@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
 export const Title = styled.h1`
+    margin-bottom: 20px;
     font-size: 2.5em;
     color: #333;
-    margin-bottom: 20px;
 `;
 
 export const Description = styled.p`
+    margin-bottom: 30px;
     color: #666;
     font-size: 1.2em;
-    margin-bottom: 30px;
 `;
 
 export const Button = styled.button`

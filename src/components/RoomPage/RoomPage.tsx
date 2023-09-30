@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { 
+import { useLocation, useNavigate } from 'react-router-dom';import { 
     ContentCard,
     Button
 } from '../Shared/SharedStyles';
@@ -10,10 +9,11 @@ import {
 } from './RoomPageStyles';
 
 const RoomPage: React.FC = () => {
-    const [name, setName] = useState('');
-    const [roomCode, setRoomCode] = useState('XYZ123');
     const location = useLocation() as { state: { roomAction: 'create' | 'join' } };
     const roomAction = location.state?.roomAction;
+    const navigate = useNavigate();
+    const [name, setName] = useState('');
+    const [roomCode, setRoomCode] = useState(roomAction === 'create' ? 'XYZ123' : '');
 
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -23,7 +23,18 @@ const RoomPage: React.FC = () => {
     }
 
     const handleRoomCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setRoomCode(e.target.value);
+        const value = e.target.value;
+        if (value.length <= 6) {
+            setRoomCode(e.target.value);
+        }
+    }
+
+    const handleContinueClick = () => {
+        if (roomAction === 'create') {
+            navigate('/selectGame', { state: { roomAction: 'create', roomCode: roomCode } });
+        } else {
+            navigate('/selectGame', { state: { roomAction: 'join', roomCode: roomCode } });
+        }
     }
 
     return (
@@ -34,7 +45,7 @@ const RoomPage: React.FC = () => {
                     id="roomCodeInput"
                     type="text"
                     placeholder="Enter a room code" 
-                    value={roomAction === 'create' ? roomCode : ''}
+                    value={roomCode}
                     onChange={handleRoomCodeChange}
                     disabled={roomAction === 'create'}
                 />
@@ -51,7 +62,7 @@ const RoomPage: React.FC = () => {
                 />
             </div>
 
-            <Button disabled={!name.trim()}>Play</Button>
+            <Button onClick={handleContinueClick} disabled={!name.trim() || !roomCode.trim()}>Continue</Button>
         </ContentCard>
     );
 }
