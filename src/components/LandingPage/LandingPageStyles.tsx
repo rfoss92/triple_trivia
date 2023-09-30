@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-interface Props {
-
-}
-
 export const AppHeader = styled.div`
     display: flex;
     align-items: center;
