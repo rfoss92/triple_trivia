@@ -44,7 +44,8 @@ export const PlayButton = styled.button`
     padding: 10px 20px;
     font-size: 1.2em;
     border: none;
-    background-color: #007bff;
+    border-radius: 8px;
+    background-color: #0367B4;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
