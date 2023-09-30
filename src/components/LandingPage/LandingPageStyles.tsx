@@ -21,7 +21,7 @@ export const AppHeader = styled.div`
 
 export const ContentCard = styled.div`
     max-width: 400px;
-    margin: 0 20px;
+    margin: -64px 20px 0;
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
