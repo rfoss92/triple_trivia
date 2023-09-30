@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-export const Title = styled.h1`
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-`;
-
-export const Description = styled.p`
-    color: #666;
-    font-size: 1.2em;
-    margin-bottom: 30px;
+export const ContentCard = styled.div`
+    display: flex;
+    flex-direction: column; 
+    max-height: calc(100vh - 44px - 59px);
+    max-width: 400px;
+    margin: -56px 20px 0;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 `;
 
 export const Button = styled.button`
